@@ -6,7 +6,7 @@ local GetNCMethod = getnamecallmethod or get_namecall_method;
 local CheckCaller = checkcaller or check_caller;
 local GetRawMT = get_raw_metatable or getrawmetatable or getraw_metatable;
 
-assert(HookFunction  and GetNCMethod and CheckCaller and Connections, "Exploit is not supported");
+assert(HookFunction and GetNCMethod and CheckCaller and Connections, "Exploit is not supported");
 
 local function HookMetaMethod(Object, MetaMethod, Function)
     return HookFunction(assert(GetRawMT(Object)[MetaMethod], "Invalid Method"), Function);
