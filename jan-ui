@@ -2483,7 +2483,7 @@ function library:Init()
 		protectgui(self.base)
 		self.base.Parent = cloneref(game:GetService("CoreGui"))
 	else
-		self.base.Parent = gethui()
+		self.base.Parent = cloneref(game:GetService("CoreGui"))
 	end
 
 	self.main = self:Create("ImageButton", {
