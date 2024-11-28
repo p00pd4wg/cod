@@ -8,8 +8,8 @@ if getgenv().library then
 end
 
 local library = {design = getgenv().design == "kali" and "kali", tabs = {}, draggable = true, flags = {}, title = "awakenkn-hub", open = false, mousestate = inputService.MouseIconEnabled,popup = nil, instances = {}, connections = {}, options = {}, notifications = {}, tabSize = 0, theme = {}, foldername = "awakenkn-hubv3", fileext = ".json"}
-if getgenv().title then
-    library.title = getgenv().title
+if getgenv().ScriptTitle then
+    library.title = getgenv().ScriptTitle
 end
 if getgenv().FolderName then
     library.foldername = getgenv().FolderName
