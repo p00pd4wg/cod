@@ -1,6 +1,6 @@
 --Services
 getgenv().runService = cloneref(game:GetService("RunService"))
-getgenv().textService = clonerefgame:GetService("TextService"))
+getgenv().textService = cloneref(game:GetService("TextService"))
 getgenv().inputService = cloneref(game:GetService("UserInputService"))
 getgenv().tweenService = cloneref(game:GetService("TweenService"))
 if getgenv().library then
