@@ -1,8 +1,12 @@
+local function gserv(serv)
+	return clonref(game:GetService(serv)
+end
+
 --Services
-getgenv().runService = cloneref(game:GetService("RunService"))
-getgenv().textService = cloneref(game:GetService("TextService"))
-getgenv().inputService = cloneref(game:GetService("UserInputService"))
-getgenv().tweenService = cloneref(game:GetService("TweenService"))
+getgenv().runService = gserv("RunService"))
+getgenv().textService = gserv("TextService"))
+getgenv().inputService = gserv("UserInputService"))
+getgenv().tweenService = gserv("TweenService"))
 if getgenv().library then
 	getgenv().library:Unload()
 end
@@ -92,7 +96,7 @@ end
 
 function library:LoadConfig(config)
 	if table.find(self:GetConfigs(), config) then
-		local Read, Config = pcall(function() return game:GetService"HttpService":JSONDecode(readfile(self.foldername .. "/" .. config .. self.fileext)) end)
+		local Read, Config = pcall(function() return gserv("HttpService"):JSONDecode(readfile(self.foldername .. "/" .. config .. self.fileext)) end)
 		Config = Read and Config or {}
 		for _, option in next, self.options do
 			if option.hasInit then
@@ -120,7 +124,7 @@ end
 function library:SaveConfig(config)
 	local Config = {}
 	if table.find(self:GetConfigs(), config) then
-		Config = pcall(function() return game:GetService"HttpService":JSONDecode(readfile(self.foldername .. "/" .. config .. self.fileext)) end)
+		Config = pcall(function() return gserv("HttpService"):JSONDecode(readfile(self.foldername .. "/" .. config .. self.fileext)) end)
 	end
 	for _, option in next, self.options do
 		if option.type ~= "button" and option.flag and not option.skipflag then
@@ -142,7 +146,7 @@ function library:SaveConfig(config)
 			end
 		end
 	end
-	writefile(self.foldername .. "/" .. config .. self.fileext, game:GetService"HttpService":JSONEncode(Config))
+	writefile(self.foldername .. "/" .. config .. self.fileext, gserv("HttpService"):JSONEncode(Config))
 end
 
 function library:GetConfigs()
@@ -2479,7 +2483,7 @@ function library:Init()
 	self.hasInit = true
 
 	self.base = library:Create("ScreenGui", {IgnoreGuiInset = true, ZIndexBehavior = Enum.ZIndexBehavior.Global})
-	self.base.Parent = cloneref(game:GetService("CoreGui"))
+	self.base.Parent = gserv("CoreGui")
 
 	self.main = self:Create("ImageButton", {
 		AutoButtonColor = false,
