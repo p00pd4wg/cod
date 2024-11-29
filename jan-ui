@@ -1,5 +1,5 @@
 local function gserv(serv)
-	return cloneref(game:GetService(serv)
+	return cloneref(game:GetService(serv))
 end
 
 --Services
