@@ -3,10 +3,10 @@ local function gserv(serv)
 end
 
 --Services
-getgenv().runService = gserv("RunService"))
-getgenv().textService = gserv("TextService"))
-getgenv().inputService = gserv("UserInputService"))
-getgenv().tweenService = gserv("TweenService"))
+getgenv().runService = gserv("RunService")
+getgenv().textService = gserv("TextService")
+getgenv().inputService = gserv("UserInputService")
+getgenv().tweenService = gserv("TweenService")
 if getgenv().library then
 	getgenv().library:Unload()
 end
