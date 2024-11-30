@@ -1,0 +1,36 @@
+getgenv().reps = cloneref(game:GetService('ReplicatedStorage'))
+getgenv().gloves = {
+  ['Default'] = reps.b,
+  ['Extended'] = reps.b,
+
+  ['Dual'] = reps.GeneralHit,
+  ['Thanos'] = reps.GeneralHit,
+  ['L.O.L.B.O.M.B'] = reps.GeneralHit,
+  ['Tycoon'] = reps.GeneralHit,
+  ['fish'] = reps.GeneralHit,
+  ['Iceskate'] = reps.GeneralHit,
+  ['🗿'] = reps.GeneralHit,
+  ['Hammer'] = reps.GeneralHit,
+
+  ['Diamond'] = reps.DiamondHit,
+  ['ZZZZZZZ'] = reps.ZZZZZZZHit,
+  ['Brick'] = reps.BrickHit,
+  ['Snow'] = reps.SnowHit,
+  ['Pull'] = reps.PullHit,
+  ['Flash'] = reps.FlashHit,
+  ['Spring'] = reps.springhit,
+  ['Swapper'] = reps.HitSwapper,
+  ['Bull'] = reps.BullHit,
+  ['Dice'] = reps.DiceHit,
+  ['Ghost'] = reps.GhostHit,
+  ['Stun'] = reps.HtStun,
+  ['Za Hando'] = reps.zhramt,
+  ['Fort'] = reps.Fort,
+  ['Magnet'] = reps.MagnetHIT,
+  ['Pusher'] = reps.PusherHit,
+  ['Jupiter'] = reps.CelestialHit,
+  ['Slapple'] = reps.SlappleHit,
+  ['Trap'] = reps.traphi,
+  ['Orbit'] = reps.Orbihit,
+  ['Plague'] = reps.PlagueHit
+}
