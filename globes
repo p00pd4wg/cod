@@ -33,5 +33,6 @@ getgenv().gloves = {
   ['Trap'] = reps.traphi,
   ['Orbit'] = reps.Orbihit,
   ['Plague'] = reps.PlagueHit,
-  ['Kinetic'] = reps.HtStun
+  ['Kinetic'] = reps.HtStun,
+  ['Anchor'] = reps.hitAnchor
 }
