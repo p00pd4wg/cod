@@ -40,5 +40,7 @@ getgenv().gloves = {
   ['Bomb'] = reps.BombHit,
   ['bus'] = reps.hitbus,
   ['Space'] = reps.HtSpace,
-  ['Boomerang'] = reps.BoomerangH
+  ['Boomerang'] = reps.BoomerangH,
+  ['Untitled Tag Glove'] = reps.UTGHit,
+  ['Speedrun'] = reps.Speedrunhit
 }
