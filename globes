@@ -11,6 +11,7 @@ getgenv().gloves = {
   ['Iceskate'] = reps.GeneralHit,
   ['🗿'] = reps.GeneralHit,
   ['Hammer'] = reps.GeneralHit,
+  ['Pillow'] = reps.GeneralHit,
 
   ['Diamond'] = reps.DiamondHit,
   ['ZZZZZZZ'] = reps.ZZZZZZZHit,
@@ -34,5 +35,10 @@ getgenv().gloves = {
   ['Orbit'] = reps.Orbihit,
   ['Plague'] = reps.PlagueHit,
   ['Kinetic'] = reps.HtStun,
-  ['Anchor'] = reps.hitAnchor
+  ['Anchor'] = reps.hitAnchor,
+  ['Warp'] = reps.WarpHt,
+  ['Bomb'] = reps.BombHit,
+  ['bus'] = reps.hitbus,
+  ['Space'] = reps.HtSpace,
+  ['Boomerang'] = reps.BoomerangH
 }
