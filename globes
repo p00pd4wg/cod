@@ -12,6 +12,8 @@ getgenv().gloves = {
   ['🗿'] = reps.GeneralHit,
   ['Hammer'] = reps.GeneralHit,
   ['Pillow'] = reps.GeneralHit,
+  ['RNG'] = reps.GeneralHit,
+  ['T H I C K'] = reps.GeneralHit,
 
   ['Diamond'] = reps.DiamondHit,
   ['ZZZZZZZ'] = reps.ZZZZZZZHit,
@@ -42,5 +44,6 @@ getgenv().gloves = {
   ['Space'] = reps.HtSpace,
   ['Boomerang'] = reps.BoomerangH,
   ['Untitled Tag Glove'] = reps.UTGHit,
-  ['Speedrun'] = reps.Speedrunhit
+  ['Speedrun'] = reps.Speedrunhit,
+  ['Mail'] = reps.MailHit
 }
