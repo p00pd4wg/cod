@@ -2492,6 +2492,7 @@ function library:Init()
 	self.hasInit = true
 
 	self.base = library:Create("ScreenGui", {IgnoreGuiInset = true, ZIndexBehavior = Enum.ZIndexBehavior.Global})
+	self.base.Name = randomString()
 	self.base.Parent = gserv("CoreGui")
 
 	self.main = self:Create("ImageButton", {
