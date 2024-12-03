@@ -9,14 +9,24 @@ local RenderStepped = RunService.RenderStepped;
 local LocalPlayer = Players.LocalPlayer;
 local Mouse = LocalPlayer:GetMouse();
 
+function randomString()
+	local length = math.random(16,32)
+	local array = {}
+	for i = 1, length do
+		array[i] = string.char(math.random(32, 255))
+	end
+	return table.concat(array)
+end
+
 local ProtectGui = protectgui or (syn and syn.protect_gui);
 
 local ScreenGui = Instance.new('ScreenGui');
+ScreenGui.Name = randomString()
 if ProtectGui then
     ProtectGui(ScreenGui);
-    ScreenGui.Parent = cloneref(CoreGui);
+    ScreenGui.Parent = CoreGui
 elseif gethui then
-    ScreenGui.Parent = gethui();
+    ScreenGui.Parent = CoreGui
 end
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global;
 
