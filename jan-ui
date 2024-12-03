@@ -1,5 +1,14 @@
-local function gserv(serv)
+function gserv(serv)
 	return cloneref(game:GetService(serv))
+end
+
+function randomString()
+	local length = math.random(16,32)
+	local array = {}
+	for i = 1, length do
+		array[i] = string.char(math.random(32, 255))
+	end
+	return table.concat(array)
 end
 
 --Services
