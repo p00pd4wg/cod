@@ -19,6 +19,8 @@ getgenv().gloves = {
   ['the schlob'] = reps.GeneralHit,
   ['Relude'] = reps.GeneralHit,
   ['Elude'] = reps.GeneralHit,
+  ['Plank'] = reps.GeneralHit,
+  ['Spoonful'] = reps.GeneralHit,
 
   ['Diamond'] = reps.DiamondHit,
   ['ZZZZZZZ'] = reps.ZZZZZZZHit,
