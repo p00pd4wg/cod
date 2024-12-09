@@ -15,6 +15,10 @@ getgenv().gloves = {
   ['RNG'] = reps.GeneralHit,
   ['T H I C K'] = reps.GeneralHit,
   ['Hive'] = reps.GeneralHit,
+  ['Avatar'] = reps.GeneralHit,
+  ['the schlob'] = reps.GeneralHit,
+  ['Relude'] = reps.GeneralHit,
+  ['Elude'] = reps.GeneralHit,
 
   ['Diamond'] = reps.DiamondHit,
   ['ZZZZZZZ'] = reps.ZZZZZZZHit,
