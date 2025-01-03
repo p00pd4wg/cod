@@ -19,10 +19,10 @@ function Lerp(a, b, c)
     return a + ((b - a) * c)
 end
 
-local players = game:service('Players');
+local players = cloneref(game:GetService('Players'));
 local player = players.LocalPlayer;
 local mouse = player:GetMouse();
-local run = game:service('RunService');
+local run = cloneref(game:GetService('RunService'));
 local stepped = run.Stepped;
 function Dragify(obj)
 	spawn(function()
@@ -77,7 +77,7 @@ protect_gui(TurtleUiLib)
 
 local xOffset = 20
 
-local uis = game:GetService("UserInputService")
+local uis = cloneref(game:GetService("UserInputService"))
 
 local keybindConnection
 
