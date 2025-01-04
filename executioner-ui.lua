@@ -1,5 +1,5 @@
 local CoreGui = cloneref(game:GetService('CoreGui'))
-local HttpService = cloneref(game:GetServoce('HttpService'))
+local HttpService = cloneref(game:GetService('HttpService'))
 local TweenService = cloneref(game:GetService('TweenService'))
 
 local Ui = {}
