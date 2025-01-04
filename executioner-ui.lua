@@ -17,7 +17,7 @@ pcall(function()
     end
 end)
 function SaveSettings()
-    writefile("Executioner/"..tostring(game.PlaceId) .."Settings.json",game:GetService("HttpService"):JSONEncode(Settings))
+    writefile("Executioner/"..tostring(game.PlaceId) .."Settings.json", HttpService:JSONEncode(Settings))
 end
 function Ui:Load(Name)
 Name = Name or "HubName"
@@ -26,9 +26,9 @@ if CoreGui:FindFirstChild(Name) then
 end
 function Ui:Set(bool,i,name1)
     if bool == false then
-        game:GetService("TweenService"):Create(i,TweenInfo.new(0.25),{BackgroundColor3 = Color3.fromRGB(252, 48, 3)}):Play()
+        TweenService:Create(i,TweenInfo.new(0.25),{BackgroundColor3 = Color3.fromRGB(252, 48, 3)}):Play()
     else
-        game:GetService("TweenService"):Create(i,TweenInfo.new(0.25),{BackgroundColor3 = Color3.fromRGB(0, 186, 21)}):Play()
+        TweenService:Create(i,TweenInfo.new(0.25),{BackgroundColor3 = Color3.fromRGB(0, 186, 21)}):Play()
     end
     Settings[name1] = bool
     SaveSettings()
@@ -563,7 +563,7 @@ DropButton.MouseButton1Click:Connect(function ()
     if DropdownOn == true  then 
         DropdownContainer.Visible = true
         TweenService:Create(DropdownContainer,TweenInfo.new(0.4),{Size = UDim2.new(0,300,0,ListLayout.AbsoluteContentSize.Y + 39)}):Play()
-        game:GetService("TweenService"):Create(Dropdown,TweenInfo.new(0.4),{Size = UDim2.new(0,300,0,ListLayout.AbsoluteContentSize.Y + 39)}):Play()
+        TweenService:Create(Dropdown,TweenInfo.new(0.4),{Size = UDim2.new(0,300,0,ListLayout.AbsoluteContentSize.Y + 39)}):Play()
     elseif DropdownOn == false  then
         TweenService:Create(Dropdown,TweenInfo.new(0.4),{Size = UDim2.new(0,300,0,30)}):Play()
         TweenService:Create(DropdownContainer,TweenInfo.new(0.4),{Size = UDim2.new(0,300,0,0)}):Play()
