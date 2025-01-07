@@ -126,11 +126,11 @@ OpenClose.MouseButton1Click:Connect(function ()
     on = not on
     if on == true then
         TweenService:Create(Main,TweenInfo.new(0.25),{Size = UDim2.new(0, 496,0, 25)}):Play()
-        wait(0.5)
+        wait(0.25)
         TweenService:Create(OpenClose,TweenInfo.new(0.1),{Rotation = 0}):Play()
     else
         TweenService:Create(Main,TweenInfo.new(0.25),{Size = UDim2.new(0, 496, 0, 320)}):Play()
-        wait(0.5)
+        wait(0.25)
         TweenService:Create(OpenClose,TweenInfo.new(0.1),{Rotation = 180}):Play()
     end
 end)
