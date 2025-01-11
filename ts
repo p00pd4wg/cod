@@ -56,23 +56,6 @@ Main.Position = UDim2.new(0.261832356, 0, 0.310139179, 0)
 Main.Size = UDim2.new(0, 496, 0, 320)
 Main.ClipsDescendants = true
 
-OpenClose.Name = "Open/Close"
-OpenClose.Parent = ScreenGui
-OpenClose.BackgroundTransparency = 1.000
-OpenClose.LayoutOrder = 8
-OpenClose.Position = UDim2.new(0.325, 0, 0.15, 0)
-OpenClose.Size = UDim2.new(0, 65, 0, 65)
-OpenClose.ZIndex = 2
-OpenClose.Image = "rbxassetid://5430597512"
-OpenClose.MouseButton1Click:Connect(function ()
-     on = not on
-    if on == true then
-	Main.Visible = false
-    else
-       	Main.Visible = true
-    end
-end)
-
 
 local UserInputService = cloneref(game:GetService("UserInputService"))
 
@@ -159,6 +142,23 @@ Topbar.Text = Name
 Topbar.TextColor3 = Color3.fromRGB(255, 255, 255)
 Topbar.TextSize = 25.000
 Topbar.TextWrapped = true
+
+OpenClose.Name = "Open/Close"
+OpenClose.Parent = ScreenGui
+OpenClose.BackgroundTransparency = 1.000
+OpenClose.LayoutOrder = 8
+OpenClose.Position = UDim2.new(0.325, 0, 0.15, 0)
+OpenClose.Size = UDim2.new(0, 65, 0, 65)
+OpenClose.ZIndex = 2
+OpenClose.Image = "rbxassetid://5430597512"
+OpenClose.MouseButton1Click:Connect(function ()
+     on = not on
+    if on == true then
+	Main.Visible = false
+    else
+       	Main.Visible = true
+    end
+end)
 
 Tabs.Name = "Tabs"
 Tabs.Parent = Main
