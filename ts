@@ -112,7 +112,7 @@ Topbar.TextWrapped = true
 
 
 OpenClose.Name = "Open/Close"
-OpenClose.Parent = Topbar
+OpenClose.Parent = ScreenGui
 OpenClose.BackgroundTransparency = 1.000
 OpenClose.LayoutOrder = 8
 OpenClose.Position = UDim2.new(0.943207145, 0, -0.02827584, 0)
