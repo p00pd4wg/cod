@@ -119,8 +119,10 @@ local UserInputService = cloneref(game:GetService("UserInputService"))
         end)
 
         UserInputService.InputChanged:Connect(function(input)
-        	if (input == dragInput and dragging) or (input == dragInput2 and dragging2) then
+        	if input == dragInput and dragging then
         		update(input)
+		elseif input == dragInput2 and dragging2 then
+			update(input)
         	end
         end)
 
