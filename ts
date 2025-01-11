@@ -123,15 +123,11 @@ OpenClose.Image = "rbxassetid://5430597512"
 OpenClose.ImageRectOffset = Vector2.new(524, 764)
 OpenClose.ImageRectSize = Vector2.new(36, 36)
 OpenClose.MouseButton1Click:Connect(function ()
-    on = not on
+     on = not on
     if on == true then
-        TweenService:Create(Main,TweenInfo.new(0.25),{Size = UDim2.new(0, 496,0, 25)}):Play()
-        wait(0.25)
-        TweenService:Create(OpenClose,TweenInfo.new(0.1),{Rotation = 0}):Play()
+	Main.Visible = false
     else
-        TweenService:Create(Main,TweenInfo.new(0.25),{Size = UDim2.new(0, 496, 0, 320)}):Play()
-        wait(0.25)
-        TweenService:Create(OpenClose,TweenInfo.new(0.1),{Rotation = 180}):Play()
+       	Main.Visible = true
     end
 end)
 
