@@ -151,13 +151,15 @@ OpenClose.Position = UDim2.new(0.325, 0, 0.15, 0)
 OpenClose.Size = UDim2.new(0, 55, 0, 55)
 OpenClose.ZIndex = 2
 OpenClose.Image = "rbxassetid://5430597512"
-OpenClose.MouseButton1Click:Connect(function ()
-     on = not on
-    if on == true then
-	Main.Visible = false
-    else
-       	Main.Visible = true
-    end
+OpenClose.MouseButton1Click:Connect(function()
+	if not dragging2 then
+		on = not on
+		if on == true then
+		Main.Visible = false
+		else
+			Main.Visible = true
+		end
+	end
 end)
 
 Tabs.Name = "Tabs"
