@@ -70,7 +70,6 @@ local UserInputService = cloneref(game:GetService("UserInputService"))
         local dragInput2
         local dragStart2
         local startPos2
-	local isdragged = false
 
         local function update(input)
         	local delta = input.Position - dragStart
@@ -126,7 +125,6 @@ local UserInputService = cloneref(game:GetService("UserInputService"))
         	if input == dragInput and dragging then
         		update(input)
 		elseif input == dragInput2 and dragging2 then
-			isdragged = true
 			update2(input)
         	end
         end)
@@ -153,13 +151,9 @@ OpenClose.Size = UDim2.new(0, 55, 0, 55)
 OpenClose.ZIndex = 2
 OpenClose.Image = "rbxassetid://5430597512"
 OpenClose.MouseButton1Click:Connect(function()
-	if not isdragged then
+	if not dragging and not dragging2 then
 		on = not on
-		if on == true then
-		Main.Visible = false
-		else
-			Main.Visible = true
-		end
+		Main.Visible = on
 	end
 end)
 
