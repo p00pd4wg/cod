@@ -59,16 +59,23 @@ Main.ClipsDescendants = true
 
 local UserInputService = cloneref(game:GetService("UserInputService"))
 
-        local gui = Main or OpenClose
+        local gui = Main
+	local gui2 = OpenClose
 
         local dragging
         local dragInput
         local dragStart
         local startPos
 
+	local dragging2
+        local dragInput2
+        local dragStart2
+        local startPos2
+
         local function update(input)
         	local delta = input.Position - dragStart
         	gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		gui.Position = UDim2.new(startPos2.X.Scale, startPos2.X.Offset + delta.X, startPos2.Y.Scale, startPos2.Y.Offset + delta.Y)
         end
 
         gui.InputBegan:Connect(function(input)
@@ -85,14 +92,34 @@ local UserInputService = cloneref(game:GetService("UserInputService"))
         	end
         end)
 
+	gui2.InputBegan:Connect(function(input)
+        	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        		dragging2 = true
+        		dragStart2 = input.Position
+        		startPos2 = gui2.Position
+        		
+        		input.Changed:Connect(function()
+        			if input.UserInputState == Enum.UserInputState.End then
+        				dragging2 = false
+        			end
+        		end)
+        	end
+        end)
+
         gui.InputChanged:Connect(function(input)
         	if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
         		dragInput = input
         	end
         end)
 
+        gui2.InputChanged:Connect(function(input)
+        	if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        		dragInput2 = input
+        	end
+        end)
+
         UserInputService.InputChanged:Connect(function(input)
-        	if input == dragInput and dragging then
+        	if (input == dragInput and dragging) and (input == dragInput2 and dragging2) then
         		update(input)
         	end
         end)
