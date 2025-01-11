@@ -59,7 +59,7 @@ Main.ClipsDescendants = true
 
 local UserInputService = cloneref(game:GetService("UserInputService"))
 
-        local gui = Main and OpenClose
+        local gui = Main or OpenClose
 
         local dragging
         local dragInput
