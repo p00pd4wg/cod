@@ -94,7 +94,7 @@ local UserInputService = cloneref(game:GetService("UserInputService"))
         	gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
         end
 
-	local function update(input)
+	local function update2(input)
 		local delta2 = input.Position - dragStart2
 		gui2.Position = UDim2.new(startPos2.X.Scale, startPos2.X.Offset + delta2.X, startPos2.Y.Scale, startPos2.Y.Offset + delta2.Y)
         end
