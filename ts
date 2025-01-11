@@ -116,7 +116,6 @@ OpenClose.Parent = ScreenGui
 OpenClose.BackgroundTransparency = 1.000
 OpenClose.LayoutOrder = 8
 OpenClose.Position = UDim2.new(0.325, 0, 0.15, 0)
-OpenClose.Rotation = 180.000
 OpenClose.Size = UDim2.new(0, 65, 0, 65)
 OpenClose.ZIndex = 2
 OpenClose.Image = "rbxassetid://5430597512"
