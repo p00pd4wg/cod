@@ -59,7 +59,7 @@ Main.ClipsDescendants = true
 
 local UserInputService = cloneref(game:GetService("UserInputService"))
 
-        local gui = Main
+        local gui = Main and OpenClose
 
         local dragging
         local dragInput
@@ -98,7 +98,7 @@ local UserInputService = cloneref(game:GetService("UserInputService"))
         end)
 
 Topbar.Name = "Topbar"
-Topbar.Parent = ScreenGui
+Topbar.Parent = Main
 Topbar.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 Topbar.ZIndex = 2
 Topbar.BorderSizePixel = 0
@@ -112,14 +112,14 @@ Topbar.TextWrapped = true
 
 
 OpenClose.Name = "Open/Close"
-OpenClose.Parent = Topbar
+OpenClose.Parent = ScreenGui
 OpenClose.BackgroundTransparency = 1.000
 OpenClose.LayoutOrder = 8
 OpenClose.Position = UDim2.new(0.943207145, 0, -0.02827584, 0)
 OpenClose.Rotation = 180.000
 OpenClose.Size = UDim2.new(0, 25, 0, 25)
 OpenClose.ZIndex = 2
-OpenClose.Image = "rbxassetid://3926305904"
+OpenClose.Image = "rbxassetid://5430597512"
 OpenClose.ImageRectOffset = Vector2.new(524, 764)
 OpenClose.ImageRectSize = Vector2.new(36, 36)
 OpenClose.MouseButton1Click:Connect(function ()
