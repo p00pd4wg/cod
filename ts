@@ -158,7 +158,11 @@ OpenClose.Image = "rbxassetid://5430597512"
 OpenClose.MouseButton1Click:Connect(function()
 	if not isdragged then
 		on = not on
-		Main.Visible = on
+		if on == true then
+			Main.Visible = true
+		else
+			Main.Visible = false
+		end
 	end
 end)
 
