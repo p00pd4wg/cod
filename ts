@@ -62,14 +62,14 @@ local UserInputService = cloneref(game:GetService("UserInputService"))
         local gui = Main
 	local gui2 = OpenClose
 
-        local dragging
-        local dragInput
-        local dragStart
-        local startPos
-	local dragging2
-        local dragInput2
-        local dragStart2
-        local startPos2
+        local dragging = false
+	local dragging2 = false
+	local dragInput = nil
+	local dragStart = nil
+	local startPos = nil
+	local dragInput2 = nil
+	local dragStart2 = nil
+	local startPos2 = nil
 
         local function update(input)
         	local delta = input.Position - dragStart
