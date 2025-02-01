@@ -34,7 +34,7 @@ function Ui:Set(bool,i,name1)
     SaveSettings()
 end
 
-local ScreenGui = Instance.new("ScreenGui")
+local ScreenGui = Instance.new("ScreenGui", CoreGui)
 local Main = Instance.new("Frame")
 local Topbar = Instance.new("TextLabel")
 local OpenClose = Instance.new("ImageButton")
@@ -46,7 +46,6 @@ local on = false
 
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.Name = Name
-ScreenGui.Parent = CoreGui
 
 Main.Name = "Main"
 Main.Parent = ScreenGui
