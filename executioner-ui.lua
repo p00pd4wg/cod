@@ -1,6 +1,6 @@
-local CoreGui = game:GetService('CoreGui')
-local HttpService = game:GetService('HttpService')
-local TweenService = game:GetService('TweenService')
+local CoreGui = cloneref(game:GetService('CoreGui'))
+local HttpService = cloneref(game:GetService('HttpService'))
+local TweenService = cloneref(game:GetService('TweenService'))
 
 local Ui = {}
 local Settings = {}
@@ -44,9 +44,9 @@ local TabListLayout = Instance.new("UIListLayout")
 local PageContainer = Instance.new("Folder")
 local on = false
 
-ScreenGui.Parent = gethui()
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.Name = Name
+ScreenGui.Parent = CoreGui
 
 Main.Name = "Main"
 Main.Parent = ScreenGui
