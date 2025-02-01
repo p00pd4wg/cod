@@ -1,6 +1,6 @@
 local CoreGui = cloneref(game:GetService('CoreGui'))
-local HttpService = cloneref(game:GetService('HttpService'))
-local TweenService = cloneref(game:GetService('TweenService'))
+local HttpService = game:GetService('HttpService')
+local TweenService = game:GetService('TweenService')
 
 local Ui = {}
 local Settings = {}
@@ -60,15 +60,25 @@ Main.ClipsDescendants = true
 local UserInputService = cloneref(game:GetService("UserInputService"))
 
         local gui = Main
+	local gui2 = OpenClose
 
-        local dragging
-        local dragInput
-        local dragStart
-        local startPos
+        local dragging = false
+	local dragging2 = false
+	local dragInput = nil
+	local dragStart = nil
+	local startPos = nil
+	local dragInput2 = nil
+	local dragStart2 = nil
+	local startPos2 = nil
 
         local function update(input)
         	local delta = input.Position - dragStart
         	gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+        end
+
+	local function update2(input)
+		local delta2 = input.Position - dragStart2
+		gui2.Position = UDim2.new(startPos2.X.Scale, startPos2.X.Offset + delta2.X, startPos2.Y.Scale, startPos2.Y.Offset + delta2.Y)
         end
 
         gui.InputBegan:Connect(function(input)
@@ -85,15 +95,37 @@ local UserInputService = cloneref(game:GetService("UserInputService"))
         	end
         end)
 
+	gui2.InputBegan:Connect(function(input)
+        	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        		dragging2 = true
+        		dragStart2 = input.Position
+        		startPos2 = gui2.Position
+        		
+        		input.Changed:Connect(function()
+        			if input.UserInputState == Enum.UserInputState.End then
+        				dragging2 = false
+        			end
+        		end)
+        	end
+        end)
+
         gui.InputChanged:Connect(function(input)
         	if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
         		dragInput = input
         	end
         end)
 
+        gui2.InputChanged:Connect(function(input)
+        	if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        		dragInput2 = input
+        	end
+        end)
+
         UserInputService.InputChanged:Connect(function(input)
         	if input == dragInput and dragging then
         		update(input)
+		elseif input == dragInput2 and dragging2 then
+			update2(input)
         	end
         end)
 
@@ -110,29 +142,23 @@ Topbar.TextColor3 = Color3.fromRGB(255, 255, 255)
 Topbar.TextSize = 25.000
 Topbar.TextWrapped = true
 
-
 OpenClose.Name = "Open/Close"
-OpenClose.Parent = Topbar
+OpenClose.Parent = ScreenGui
 OpenClose.BackgroundTransparency = 1.000
 OpenClose.LayoutOrder = 8
-OpenClose.Position = UDim2.new(0.943207145, 0, -0.02827584, 0)
-OpenClose.Rotation = 180.000
-OpenClose.Size = UDim2.new(0, 25, 0, 25)
+OpenClose.Position = UDim2.new(0.325, 0, 0.15, 0)
+OpenClose.Size = UDim2.new(0, 55, 0, 55)
 OpenClose.ZIndex = 2
-OpenClose.Image = "rbxassetid://3926305904"
-OpenClose.ImageRectOffset = Vector2.new(524, 764)
-OpenClose.ImageRectSize = Vector2.new(36, 36)
-OpenClose.MouseButton1Click:Connect(function ()
-    on = not on
-    if on == true then
-        TweenService:Create(Main,TweenInfo.new(0.25),{Size = UDim2.new(0, 496,0, 25)}):Play()
-        wait(0.25)
-        TweenService:Create(OpenClose,TweenInfo.new(0.1),{Rotation = 0}):Play()
-    else
-        TweenService:Create(Main,TweenInfo.new(0.25),{Size = UDim2.new(0, 496, 0, 320)}):Play()
-        wait(0.25)
-        TweenService:Create(OpenClose,TweenInfo.new(0.1),{Rotation = 180}):Play()
-    end
+OpenClose.Image = "rbxassetid://5430597512"
+OpenClose.MouseButton1Click:Connect(function()
+	if not dragging2 then
+		on = not on
+		if on == true then
+			Main.Visible = true
+		else
+			Main.Visible = false
+		end
+	end
 end)
 
 Tabs.Name = "Tabs"
