@@ -493,26 +493,25 @@ local Value;
 
 MinAndMax.Text = maxvalue
 -----Main Code-----
-
 MainSlider.MouseButton1Down:Connect(function()
-	Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 297) * Background.AbsoluteSize.X) + tonumber(minvalue)) or 0
+	Value = (((tonumber(maxvalue) - tonumber(minvalue)) / 297) * Background.AbsoluteSize.X) + tonumber(minvalue) or 0
 	Background.Size = UDim2.new(0, math.clamp(mouse.X - Background.AbsolutePosition.X, 0, 297), 0, 5)
     pcall(function()
 		callback(Value)
 	end)
 	moveconnection = mouse.Move:Connect(function()
-		Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 297) * Background.AbsoluteSize.X) + tonumber(minvalue))
+		Value = (((tonumber(maxvalue) - tonumber(minvalue)) / 297) * Background.AbsoluteSize.X) + tonumber(minvalue)
 		Background.Size = UDim2.new(0, math.clamp(mouse.X - Background.AbsolutePosition.X, 0, 297), 0, 5)
-        MinAndMax.Text = Value
+        MinAndMax.Text = string.format("%.1f", Value)
         pcall(function()
 			callback(Value)
 		end)
 	end)
 	releaseconnection = uis.InputEnded:Connect(function(Mouse)
 		if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
-			Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 297) * Background.AbsoluteSize.X) + tonumber(minvalue))
+			Value = (((tonumber(maxvalue) - tonumber(minvalue)) / 297) * Background.AbsoluteSize.X) + tonumber(minvalue)
 			Background.Size = UDim2.new(0, math.clamp(mouse.X - Background.AbsolutePosition.X, 0, 297), 0, 5)
-            MinAndMax.Text = Value
+            MinAndMax.Text = string.format("%.1f", Value)
             pcall(function()
 				callback(Value)
 			end)
