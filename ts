@@ -34,7 +34,7 @@ function Ui:Set(bool,i,name1)
     SaveSettings()
 end
 
-local ScreenGui = Instance.new("ScreenGui")
+local ScreenGui = Instance.new("ScreenGui", CoreGui)
 local Main = Instance.new("Frame")
 local Topbar = Instance.new("TextLabel")
 local OpenClose = Instance.new("ImageButton")
@@ -44,7 +44,6 @@ local TabListLayout = Instance.new("UIListLayout")
 local PageContainer = Instance.new("Folder")
 local on = false
 
-ScreenGui.Parent = CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.Name = Name
 
@@ -496,24 +495,24 @@ MinAndMax.Text = maxvalue
 -----Main Code-----
 
 MainSlider.MouseButton1Down:Connect(function()
-	Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 297) * Background.AbsoluteSize.X) + tonumber(minvalue)) or 0
+	Value = (((tonumber(maxvalue) - tonumber(minvalue)) / 297) * Background.AbsoluteSize.X) + tonumber(minvalue) or 0
 	Background.Size = UDim2.new(0, math.clamp(mouse.X - Background.AbsolutePosition.X, 0, 297), 0, 5)
     pcall(function()
 		callback(Value)
 	end)
 	moveconnection = mouse.Move:Connect(function()
-		Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 297) * Background.AbsoluteSize.X) + tonumber(minvalue))
+		Value = (((tonumber(maxvalue) - tonumber(minvalue)) / 297) * Background.AbsoluteSize.X) + tonumber(minvalue)
 		Background.Size = UDim2.new(0, math.clamp(mouse.X - Background.AbsolutePosition.X, 0, 297), 0, 5)
-        MinAndMax.Text = Value
+        MinAndMax.Text = string.format("%.2f", Value) -- Display value with 2 decimal places
         pcall(function()
 			callback(Value)
 		end)
 	end)
 	releaseconnection = uis.InputEnded:Connect(function(Mouse)
 		if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
-			Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 297) * Background.AbsoluteSize.X) + tonumber(minvalue))
+			Value = (((tonumber(maxvalue) - tonumber(minvalue)) / 297) * Background.AbsoluteSize.X) + tonumber(minvalue)
 			Background.Size = UDim2.new(0, math.clamp(mouse.X - Background.AbsolutePosition.X, 0, 297), 0, 5)
-            MinAndMax.Text = Value
+            MinAndMax.Text = string.format("%.2f", Value) -- Display value with 2 decimal places
             pcall(function()
 				callback(Value)
 			end)
