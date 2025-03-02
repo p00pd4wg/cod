@@ -493,28 +493,44 @@ local Value;
 
 MinAndMax.Text = maxvalue
 -----Main Code-----
+local function isDecimal(num)
+    return tostring(num):match("%.") ~= nil
+end
+
 MainSlider.MouseButton1Down:Connect(function()
-	Value = (((tonumber(maxvalue) - tonumber(minvalue)) / 297) * Background.AbsoluteSize.X) + tonumber(minvalue) or 0
+	local minNum = tonumber(minvalue)
+	local maxNum = tonumber(maxvalue)
+	local isDecimalRange = isDecimal(minNum) or isDecimal(maxNum)
+
+	Value = (((maxNum - minNum) / 297) * Background.AbsoluteSize.X) + minNum
 	Background.Size = UDim2.new(0, math.clamp(mouse.X - Background.AbsolutePosition.X, 0, 297), 0, 5)
-    pcall(function()
+
+	pcall(function()
 		callback(Value)
 	end)
+
 	moveconnection = mouse.Move:Connect(function()
-		Value = (((tonumber(maxvalue) - tonumber(minvalue)) / 297) * Background.AbsoluteSize.X) + tonumber(minvalue)
+		Value = (((maxNum - minNum) / 297) * Background.AbsoluteSize.X) + minNum
 		Background.Size = UDim2.new(0, math.clamp(mouse.X - Background.AbsolutePosition.X, 0, 297), 0, 5)
-        MinAndMax.Text = string.format("%.1f", Value)
-        pcall(function()
+        
+        MinAndMax.Text = isDecimalRange and string.format("%.1f", Value) or tostring(math.floor(Value))
+
+		pcall(function()
 			callback(Value)
 		end)
 	end)
+
 	releaseconnection = uis.InputEnded:Connect(function(Mouse)
 		if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
-			Value = (((tonumber(maxvalue) - tonumber(minvalue)) / 297) * Background.AbsoluteSize.X) + tonumber(minvalue)
+			Value = (((maxNum - minNum) / 297) * Background.AbsoluteSize.X) + minNum
 			Background.Size = UDim2.new(0, math.clamp(mouse.X - Background.AbsolutePosition.X, 0, 297), 0, 5)
-            MinAndMax.Text = string.format("%.1f", Value)
-            pcall(function()
+            
+            MinAndMax.Text = isDecimalRange and string.format("%.1f", Value) or tostring(math.floor(Value))
+
+			pcall(function()
 				callback(Value)
 			end)
+
 			moveconnection:Disconnect()
 			releaseconnection:Disconnect()
 		end
